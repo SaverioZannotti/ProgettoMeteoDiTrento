@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Aggiunge il pacchetto Newtonsoft.Json -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Riferimento al progetto ModelliMeteoTrento -->
     <ProjectReference Include="..\ModelliMeteoTrento\ModelliMeteoTrento.csproj" />
   </ItemGroup>
 

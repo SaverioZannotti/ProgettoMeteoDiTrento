@@ -7,269 +7,291 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ServiceReference1
+namespace CustomNamespace
 {
     using System.Runtime.Serialization;
-    
-    
+
+    // L'attributo DebuggerStepThrough indica al debugger di non interrompere l'esecuzione del codice in questo punto.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
+    // L'attributo GeneratedCode fornisce informazioni sullo strumento di generazione del codice.
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PrevisioneOutput", Namespace="http://tempuri.org/")]
-    public partial class PrevisioneOutput : object
+    // L'attributo DataContract indica che la classe è un contratto dati per la serializzazione/deserializzazione.
+    [System.Runtime.Serialization.DataContractAttribute(Name="WeatherForecastOutput", Namespace="http://tempuri.org/")]
+    public partial class WeatherForecastOutput : object
     {
-        
-        private string giornoField;
-        
-        private string descIconaField;
-        
-        private string fasciaField;
-        
-        private int tMinGiornoField;
-        
-        private int tMaxGiornoField;
-        
-        private string iconaField;
-        
+        // Campi privati per memorizzare i valori delle proprietà.
+        private string dayField;
+        private string iconDescriptionField;
+        private string timeSlotField;
+        private int minTemperatureField;
+        private int maxTemperatureField;
+        private string iconField;
+
+        // Proprietà per rappresentare il giorno della previsione.
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string giorno
+        public string Day
         {
             get
             {
-                return this.giornoField;
+                return this.dayField;
             }
             set
             {
-                this.giornoField = value;
+                this.dayField = value;
             }
         }
-        
+
+        // Proprietà per la descrizione dell'icona della previsione.
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string descIcona
+        public string IconDescription
         {
             get
             {
-                return this.descIconaField;
+                return this.iconDescriptionField;
             }
             set
             {
-                this.descIconaField = value;
+                this.iconDescriptionField = value;
             }
         }
-        
+
+        // Proprietà per rappresentare la fascia oraria della previsione.
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string fascia
+        public string TimeSlot
         {
             get
             {
-                return this.fasciaField;
+                return this.timeSlotField;
             }
             set
             {
-                this.fasciaField = value;
+                this.timeSlotField = value;
             }
         }
-        
+
+        // Proprietà per la temperatura minima prevista.
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int tMinGiorno
+        public int MinTemperature
         {
             get
             {
-                return this.tMinGiornoField;
+                return this.minTemperatureField;
             }
             set
             {
-                this.tMinGiornoField = value;
+                this.minTemperatureField = value;
             }
         }
-        
+
+        // Proprietà per la temperatura massima prevista.
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
-        public int tMaxGiorno
+        public int MaxTemperature
         {
             get
             {
-                return this.tMaxGiornoField;
+                return this.maxTemperatureField;
             }
             set
             {
-                this.tMaxGiornoField = value;
+                this.maxTemperatureField = value;
             }
         }
-        
+
+        // Proprietà per rappresentare l'icona associata alla previsione.
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string icona
+        public string Icon
         {
             get
             {
-                return this.iconaField;
+                return this.iconField;
             }
             set
             {
-                this.iconaField = value;
+                this.iconField = value;
             }
         }
     }
-    
+
+    // Interfaccia per definire il contratto del servizio WCF.
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ISoapService")]
-    public interface ISoapService
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CustomNamespace.IWeatherService")]
+    public interface IWeatherService
     {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISoapService/ricerca", ReplyAction="*")]
-        System.Threading.Tasks.Task<ServiceReference1.ricercaResponse> ricercaAsync(ServiceReference1.ricercaRequest request);
+        // Metodo asincrono per cercare previsioni meteo.
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWeatherService/search", ReplyAction="*")]
+        System.Threading.Tasks.Task<CustomNamespace.SearchResponse> SearchAsync(CustomNamespace.SearchRequest request);
     }
-    
+
+    // Classe per rappresentare la richiesta del servizio.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ricercaRequest
+    public partial class SearchRequest
     {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ricerca", Namespace="http://tempuri.org/", Order=0)]
-        public ServiceReference1.ricercaRequestBody Body;
-        
-        public ricercaRequest()
+        // Corpo del messaggio della richiesta.
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="search", Namespace="http://tempuri.org/", Order=0)]
+        public CustomNamespace.SearchRequestBody Body;
+
+        // Costruttore di default.
+        public SearchRequest()
         {
         }
-        
-        public ricercaRequest(ServiceReference1.ricercaRequestBody Body)
+
+        // Costruttore che accetta un corpo della richiesta.
+        public SearchRequest(CustomNamespace.SearchRequestBody Body)
         {
             this.Body = Body;
         }
     }
-    
+
+    // Classe che rappresenta il corpo della richiesta del servizio.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ricercaRequestBody
+    public partial class SearchRequestBody
     {
-        
+        // Data della previsione richiesta.
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string data;
-        
-        public ricercaRequestBody()
+        public string Date;
+
+        // Costruttore di default.
+        public SearchRequestBody()
         {
         }
-        
-        public ricercaRequestBody(string data)
+
+        // Costruttore che accetta una data.
+        public SearchRequestBody(string Date)
         {
-            this.data = data;
+            this.Date = Date;
         }
     }
-    
+
+    // Classe per rappresentare la risposta del servizio.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class ricercaResponse
+    public partial class SearchResponse
     {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="ricercaResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ServiceReference1.ricercaResponseBody Body;
-        
-        public ricercaResponse()
+        // Corpo del messaggio della risposta.
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="searchResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CustomNamespace.SearchResponseBody Body;
+
+        // Costruttore di default.
+        public SearchResponse()
         {
         }
-        
-        public ricercaResponse(ServiceReference1.ricercaResponseBody Body)
+
+        // Costruttore che accetta un corpo della risposta.
+        public SearchResponse(CustomNamespace.SearchResponseBody Body)
         {
             this.Body = Body;
         }
     }
-    
+
+    // Classe che rappresenta il corpo della risposta del servizio.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class ricercaResponseBody
+    public partial class SearchResponseBody
     {
-        
+        // Array di risultati delle previsioni meteo.
         [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public ServiceReference1.PrevisioneOutput[] ricercaResult;
-        
-        public ricercaResponseBody()
+        public CustomNamespace.WeatherForecastOutput[] SearchResult;
+
+        // Costruttore di default.
+        public SearchResponseBody()
         {
         }
-        
-        public ricercaResponseBody(ServiceReference1.PrevisioneOutput[] ricercaResult)
+
+        // Costruttore che accetta un array di risultati.
+        public SearchResponseBody(CustomNamespace.WeatherForecastOutput[] SearchResult)
         {
-            this.ricercaResult = ricercaResult;
+            this.SearchResult = SearchResult;
         }
     }
-    
+
+    // Interfaccia che rappresenta il canale di comunicazione per il servizio.
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    public interface ISoapServiceChannel : ServiceReference1.ISoapService, System.ServiceModel.IClientChannel
+    public interface IWeatherServiceChannel : CustomNamespace.IWeatherService, System.ServiceModel.IClientChannel
     {
     }
-    
+
+    // Classe client per interagire con il servizio meteo.
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
-    public partial class SoapServiceClient : System.ServiceModel.ClientBase<ServiceReference1.ISoapService>, ServiceReference1.ISoapService
+    public partial class WeatherServiceClient : System.ServiceModel.ClientBase<CustomNamespace.IWeatherService>, CustomNamespace.IWeatherService
     {
-        
-        /// <summary>
-        /// Implementare questo metodo parziale per configurare l'endpoint servizio.
-        /// </summary>
-        /// <param name="serviceEndpoint">Endpoint da configurare</param>
-        /// <param name="clientCredentials">Credenziali del client</param>
+        // Metodo parziale per configurare l'endpoint.
         static partial void ConfigureEndpoint(System.ServiceModel.Description.ServiceEndpoint serviceEndpoint, System.ServiceModel.Description.ClientCredentials clientCredentials);
-        
-        public SoapServiceClient() : 
-                base(SoapServiceClient.GetDefaultBinding(), SoapServiceClient.GetDefaultEndpointAddress())
+
+        // Costruttore di default per il client del servizio.
+        public WeatherServiceClient() :
+                base(WeatherServiceClient.GetDefaultBinding(), WeatherServiceClient.GetDefaultEndpointAddress())
         {
-            this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_ISoapService_soap.ToString();
+            this.Endpoint.Name = EndpointConfiguration.BasicHttpBinding_IWeatherService.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-        
-        public SoapServiceClient(EndpointConfiguration endpointConfiguration) : 
-                base(SoapServiceClient.GetBindingForEndpoint(endpointConfiguration), SoapServiceClient.GetEndpointAddress(endpointConfiguration))
-        {
-            this.Endpoint.Name = endpointConfiguration.ToString();
-            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
-        }
-        
-        public SoapServiceClient(EndpointConfiguration endpointConfiguration, string remoteAddress) : 
-                base(SoapServiceClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
+
+        // Costruttore che accetta una configurazione di endpoint.
+        public WeatherServiceClient(EndpointConfiguration endpointConfiguration) :
+                base(WeatherServiceClient.GetBindingForEndpoint(endpointConfiguration), WeatherServiceClient.GetEndpointAddress(endpointConfiguration))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-        
-        public SoapServiceClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(SoapServiceClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+
+        // Costruttore che accetta una configurazione di endpoint e un indirizzo remoto.
+        public WeatherServiceClient(EndpointConfiguration endpointConfiguration, string remoteAddress) :
+                base(WeatherServiceClient.GetBindingForEndpoint(endpointConfiguration), new System.ServiceModel.EndpointAddress(remoteAddress))
         {
             this.Endpoint.Name = endpointConfiguration.ToString();
             ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
         }
-        
-        public SoapServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+
+        // Costruttore che accetta una configurazione di endpoint e un indirizzo di endpoint remoto.
+        public WeatherServiceClient(EndpointConfiguration endpointConfiguration, System.ServiceModel.EndpointAddress remoteAddress) :
+                base(WeatherServiceClient.GetBindingForEndpoint(endpointConfiguration), remoteAddress)
+        {
+            this.Endpoint.Name = endpointConfiguration.ToString();
+            ConfigureEndpoint(this.Endpoint, this.ClientCredentials);
+        }
+
+        // Costruttore che accetta un binding e un indirizzo di endpoint remoto.
+        public WeatherServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) :
                 base(binding, remoteAddress)
         {
         }
-        
+
+        // Implementazione del metodo di ricerca asincrono definito nell'interfaccia del servizio.
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ServiceReference1.ricercaResponse> ServiceReference1.ISoapService.ricercaAsync(ServiceReference1.ricercaRequest request)
+        System.Threading.Tasks.Task<CustomNamespace.SearchResponse> CustomNamespace.IWeatherService.SearchAsync(CustomNamespace.SearchRequest request)
         {
-            return base.Channel.ricercaAsync(request);
+            return base.Channel.SearchAsync(request);
         }
-        
-        public System.Threading.Tasks.Task<ServiceReference1.ricercaResponse> ricercaAsync(string data)
+
+        // Metodo di convenienza per eseguire la ricerca asincrona utilizzando solo la data come input.
+        public System.Threading.Tasks.Task<CustomNamespace.SearchResponse> SearchAsync(string date)
         {
-            ServiceReference1.ricercaRequest inValue = new ServiceReference1.ricercaRequest();
-            inValue.Body = new ServiceReference1.ricercaRequestBody();
-            inValue.Body.data = data;
-            return ((ServiceReference1.ISoapService)(this)).ricercaAsync(inValue);
+            CustomNamespace.SearchRequest inValue = new CustomNamespace.SearchRequest();
+            inValue.Body = new CustomNamespace.SearchRequestBody();
+            inValue.Body.Date = date;
+            return ((CustomNamespace.IWeatherService)(this)).SearchAsync(inValue);
         }
-        
+
+        // Metodo per aprire la connessione al servizio in modo asincrono.
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
         }
-        
+
+        // Metodo per ottenere il binding configurato per un determinato endpoint.
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ISoapService_soap))
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IWeatherService))
             {
                 System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
                 result.MaxBufferSize = int.MaxValue;
@@ -278,32 +300,35 @@ namespace ServiceReference1
                 result.AllowCookies = true;
                 return result;
             }
-            throw new System.InvalidOperationException(string.Format("L\'endpoint denominato \'{0}\' non è stato trovato.", endpointConfiguration));
+            throw new System.InvalidOperationException(string.Format("The endpoint named '{0}' was not found.", endpointConfiguration));
         }
-        
+
+        // Metodo per ottenere l'indirizzo di endpoint configurato per un determinato endpoint.
         private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
         {
-            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ISoapService_soap))
+            if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IWeatherService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:32773/Servizio.wsdl");
+                return new System.ServiceModel.EndpointAddress("http://localhost:32773/Service.wsdl");
             }
-            throw new System.InvalidOperationException(string.Format("L\'endpoint denominato \'{0}\' non è stato trovato.", endpointConfiguration));
+            throw new System.InvalidOperationException(string.Format("The endpoint named '{0}' was not found.", endpointConfiguration));
         }
-        
+
+        // Metodo per ottenere il binding di default per il servizio.
         private static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
-            return SoapServiceClient.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_ISoapService_soap);
+            return WeatherServiceClient.GetBindingForEndpoint(EndpointConfiguration.BasicHttpBinding_IWeatherService);
         }
-        
+
+        // Metodo per ottenere l'indirizzo di endpoint di default per il servizio.
         private static System.ServiceModel.EndpointAddress GetDefaultEndpointAddress()
         {
-            return SoapServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_ISoapService_soap);
+            return WeatherServiceClient.GetEndpointAddress(EndpointConfiguration.BasicHttpBinding_IWeatherService);
         }
-        
+
+        // Enumerazione per rappresentare le configurazioni di endpoint supportate.
         public enum EndpointConfiguration
         {
-            
-            BasicHttpBinding_ISoapService_soap,
+            BasicHttpBinding_IWeatherService,
         }
     }
 }

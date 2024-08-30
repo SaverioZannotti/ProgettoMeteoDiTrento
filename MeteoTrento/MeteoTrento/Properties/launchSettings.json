@@ -1,37 +1,45 @@
 {
   "profiles": {
-    "MeteoTrento": {
-      "commandName": "Project",
-      "launchBrowser": true,
+    // Profilo di avvio per l'applicazione "WeatherTrento"
+    "WeatherTrento": {
+      "commandName": "App",  // Tipo di comando di avvio (applicazione .NET Core)
+      "launchBrowser": true, // Specifica se avviare automaticamente il browser all'avvio
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development"  // Imposta l'ambiente di sviluppo per l'applicazione
       },
-      "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5283"
+      "showRunMessages": true, // Visualizza i messaggi di esecuzione nel terminale
+      "appUrl": "http://localhost:5283/" // URL su cui l'applicazione sarà in ascolto
     },
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
+
+    // Profilo di avvio per l'utilizzo con IIS Express
+    "ExpressIIS": {
+      "commandName": "Express",  // Tipo di comando di avvio (IIS Express)
+      "launchBrowser": true,     // Specifica se avviare automaticamente il browser all'avvio
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "DOTNET_ENVIRONMENT": "Development"  // Imposta l'ambiente di sviluppo per l'applicazione
       }
     },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+
+    // Profilo di avvio per l'esecuzione dell'applicazione all'interno di un container Docker
+    "Container": {
+      "commandName": "Container",  // Tipo di comando di avvio (contenitore Docker)
+      "launchBrowser": true,       // Specifica se avviare automaticamente il browser all'avvio
+      "launchUrl": "{Scheme}://{Host}:{Port}",  // Modello di URL per avviare l'app nel browser
       "environmentVariables": {
-        "ASPNETCORE_URLS": "http://+:80"
+        "APP_URLS": "http://+/"  // Imposta gli URL su cui l'applicazione Docker sarà in ascolto
       },
-      "publishAllPorts": true
+      "exposeAllPorts": true // Esponi tutte le porte dal container al sistema host
     }
   },
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:5553",
-      "sslPort": 0
+
+  "serverSettings": {
+    "useWindowsAuth": false, // Disabilita l'autenticazione di Windows
+    "useAnonymousAuth": true, // Abilita l'autenticazione anonima
+
+    // Configurazione specifica per l'utilizzo con IIS Express
+    "expressIIS": {
+      "appUrl": "http://localhost:5553/",  // URL su cui l'applicazione sarà in ascolto con IIS Express
+      "sslPort": 0  // Porta SSL disabilitata (0 indica che non viene utilizzato SSL)
     }
   }
 }

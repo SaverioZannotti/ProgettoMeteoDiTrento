@@ -1,17 +1,32 @@
 {
-  "ExtendedData": {
-    "inputs": [
+  "DatiEstesi": {
+    // Questo array contiene le fonti da cui vengono caricati i dati,
+    // in questo caso, un file WSDL (Web Services Description Language).
+    "fonti": [
       "http://localhost:32773/Servizio.wsdl"
     ],
-    "collectionTypes": [
+
+    // Questo array specifica i tipi di collezioni supportati o utilizzati.
+    // "System.Array" rappresenta un array classico in .NET,
+    // mentre "System.Collections.Generic.Dictionary`2" rappresenta un dizionario generico con chiave/valore.
+    "tipiCollezione": [
       "System.Array",
       "System.Collections.Generic.Dictionary`2"
     ],
-    "namespaceMappings": [
-      "*, ServiceReference1"
+
+    // Questo array definisce la mappatura dei namespace.
+    // L'asterisco (*) rappresenta una wildcard per tutti i namespace,
+    // e "RiferimentoServizio1" è il namespace di destinazione per il riutilizzo dei tipi.
+    "mappaturaNamespace": [
+      "*, RiferimentoServizio1"
     ],
 
-    "targetFramework": "net6.0",
-    "typeReuseMode": "All"
+    // Specifica la versione del framework di destinazione per cui il codice è generato.
+    // In questo caso, il target framework è .NET 6.0.
+    "frameworkDiDestinazione": "net6.0",
+
+    // Specifica la modalità di riutilizzo dei tipi.
+    // "Tutti" indica che tutti i tipi devono essere riutilizzati, se possibile.
+    "modalitaRiutilizzoTipi": "Tutti"
   }
 }
