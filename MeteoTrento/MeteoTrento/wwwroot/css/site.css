@@ -1,69 +1,53 @@
 html {
-  font-size: 14px;
+  font-size: 18px; /* Imposta la dimensione base del font su 18px per una buona leggibilità */
+  position: relative; /* Posiziona l'elemento HTML in modo relativo, utile per eventuali posizionamenti dei suoi elementi figli */
+  min-height: 100%; /* Assicura che l'elemento HTML occupi almeno il 100% dell'altezza del viewport */
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 20px; /* Aumenta la dimensione del font a 20px su schermi con una larghezza di almeno 768px (tablet e dispositivi più grandi) */
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-
-/* Add this to your site.css */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usa una serie di font moderni e leggibili come fallback */
+  background-color: #202124; /* Imposta uno sfondo scuro per un tema scuro */
+  color: #e0e0e0; /* Imposta il colore del testo su un grigio chiaro per garantire contrasto con lo sfondo scuro */
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  width: 100%; /* La tabella occupa il 100% della larghezza del contenitore */
+  border-collapse: collapse; /* Rimuove gli spazi tra i bordi delle celle della tabella per un layout compatto */
+  margin: 25px 0; /* Imposta un margine verticale di 25px sopra e sotto la tabella */
+  font-size: 0.9em; /* Imposta la dimensione del testo della tabella leggermente più piccola rispetto al corpo principale */
+  min-width: 400px; /* La tabella ha una larghezza minima di 400px, per evitare che si restringa troppo */
+  box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Aggiunge un'ombra per dare un effetto di profondità */
 }
 
 table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  text-align: left;
-  font-weight: bold;
+  background-color: #1a73e8; /* Imposta uno sfondo blu brillante per l'intestazione della tabella */
+  color: #ffffff; /* Imposta il testo dell'intestazione su bianco per contrastare con il blu dello sfondo */
+  text-align: left; /* Allinea il testo delle intestazioni a sinistra */
+  font-weight: bold; /* Rende il testo delle intestazioni in grassetto */
 }
 
 table th,
 table td {
-  padding: 12px 15px;
+  padding: 12px 15px; /* Aggiunge un padding di 12px in alto e in basso, 15px a destra e sinistra per spaziatura uniforme nelle celle */
 }
 
 table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #3c4043; /* Aggiunge un bordo inferiore di 1px tra le righe della tabella per dividerle */
 }
 
 table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
+  background-color: #303134; /* Imposta uno sfondo grigio scuro per le righe pari della tabella, creando un effetto zebra */
 }
 
 @media screen and (max-width: 600px) {
   table {
-    display: block;
-    overflow-x: auto;
+    display: block; /* Imposta la tabella come blocco su schermi piccoli, per rendere il contenuto più gestibile */
+    overflow-x: auto; /* Aggiunge uno scorrimento orizzontale quando la larghezza della tabella supera la larghezza dello schermo, rendendola responsive */
   }
 }

@@ -1,35 +1,39 @@
 ﻿@model MeteoTrento.ViewModels.MeteoTrentoLetturaPrevisioniViewModel
-
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml"; /* Specifica che la pagina utilizza il layout condiviso, definito in _Layout.cshtml */
 }
 
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previsioni Meteo</title>
-    <link rel="stylesheet" href="MeteoTrento/MeteoTrento/wwwroot/css/site.css">
+    <meta charset="UTF-8"> <!-- Definisce il set di caratteri come UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la pagina per essere responsive su dispositivi mobili -->
+    <title>Previsioni Meteo</title> <!-- Titolo della pagina -->
+    <link rel="stylesheet" href="MeteoTrento/MeteoTrento/wwwroot/css/site.css"> <!-- Collegamento al file CSS per lo stile della pagina -->
 </head>
 <body>
+    <!-- Tabella che visualizza le previsioni meteo -->
     <table>
         <thead>
             <tr>
-                <th>Giornogggggggggggggggggggggggggggggggg</th>
+                <!-- Definisce le intestazioni della tabella -->
+                <th>Giorno</th>
                 <th>Fascia</th>
                 <th>Previsione</th>
-                <th>Minime</th>
-                <th>Massime</th>
+                <th>Min</th>
+                <th>Max</th>
             </tr>
         </thead>
         <tbody>
+            <!-- Cicla attraverso la lista delle previsioni fornita dal ViewModel -->
             @foreach (var Previsione in Model.lista)
             {
                 <tr>
                     <td>@Previsione.giorno</td>
                     <td>@Previsione.fascia</td>
-                    <td>@Previsione.descIcona <img src="@Previsione.icona" class="weather-icon" alt="Icona Meteo"></td>
+                    <td>
+                        <img src="@Previsione.icona" alt="Icona Meteo"> @Previsione.descIcona
+                    </td>
                     <td>@Previsione.tMinGiorno</td>
                     <td>@Previsione.tMaxGiorno</td>
                 </tr>

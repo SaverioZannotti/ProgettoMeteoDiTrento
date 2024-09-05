@@ -1,9 +1,18 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home Page"; /* Imposta il titolo della pagina dinamicamente utilizzando ViewData */
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-   <a href="~/MeteoTrento/LetturaPrevisioni" class="btn btn-primary">Vedi Previsioni Meteo</a>
+    <!-- Titolo principale della pagina -->
+    <h1 class="display-4">Benvenuto</h1> <!-- Utilizza la classe Bootstrap 'display-4' per rendere il titolo grande e prominente -->
+
+    <!-- Paragrafo con un link alla documentazione di ASP.NET Core -->
+    <p>
+        Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.
+        <!-- Link esterno che porta alla documentazione di ASP.NET Core -->
+    </p>
+
+    <!-- Bottone che porta alla pagina delle previsioni meteo -->
+    <a href="~/MeteoTrento/LetturaPrevisioni" class="btn btn-primary">Vedi le previsioni</a>
+    <!-- Il link utilizza una rotta locale e la classe 'btn btn-primary' di Bootstrap per creare un bottone visivamente attraente -->
 </div>
