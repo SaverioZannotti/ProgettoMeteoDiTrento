@@ -1,102 +1,42 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/*
+  Documentazione su come configurare il bundling e la minificazione dei file statici.
+  Link: https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+*/
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+/* Stile per la navbar */
+.navbar {
+    background-color: #202124; /* Colore di sfondo scuro per la navbar */
+    border-bottom: 1px solid #3c4043; /* Bordo inferiore leggero per separare visivamente la navbar dal resto del contenuto */
 }
 
-a {
-  color: #0077cc;
+.navbar-brand,
+.navbar-nav .nav-link {
+    color: #e0e0e0; /* Colore del testo grigio chiaro per il brand e i link della navbar, adatto a uno sfondo scuro */
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #8ab4f8; /* Cambia il colore del link in un azzurro brillante quando è attivo o al passaggio del mouse */
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+/* Icona del pulsante per aprire la navbar nei dispositivi mobili */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%288, 160, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Utilizza un'icona SVG codificata inline per il pulsante hamburger della navbar con tratti azzurri */
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
+/* Stile per il footer */
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+    border-top: 1px solid #3c4043; /* Bordo superiore leggero, simile alla navbar, per separare il footer dal contenuto */
+    background-color: #202124; /* Stesso colore di sfondo della navbar, creando un aspetto uniforme */
+    margin: 25px 0; /* Spaziatura verticale attorno al footer */
+    color: #e0e0e0; /* Colore del testo chiaro, per contrastare lo sfondo scuro */
 }
 
-/* Add this to your site.css */
+/* Stile generale per il body */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  border-radius: 5px 5px 0 0;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(0,0,0,0.15);
-}
-
-table thead tr {
-  background-color: #009879;
-  color: #ffffff;
-  text-align: left;
-  font-weight: bold;
-}
-
-table th,
-table td {
-  padding: 12px 15px;
-}
-
-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
-}
-
-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
-}
-
-table tbody tr.active-row {
-  font-weight: bold;
-  color: #009879;
-}
-
-@media screen and (max-width: 600px) {
-  table {
-    display: block;
-    overflow-x: auto;
-  }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font moderno e leggibile */
+    background-color: #202124; /* Colore di sfondo scuro coerente con il tema della navbar e del footer */
+    color: #e0e0e0; /* Colore del testo chiaro per il contrasto con lo sfondo */
+    padding-top: 60px; /* Aggiunge un padding superiore per fare spazio alla navbar fissa se presente */
 }

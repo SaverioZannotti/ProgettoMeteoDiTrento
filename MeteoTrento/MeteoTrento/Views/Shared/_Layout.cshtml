@@ -1,50 +1,73 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Impostazione del set di caratteri e della viewport per una corretta visualizzazione su diversi dispositivi -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titolo della pagina, reso dinamico con Razor -->
     <title>@ViewData["Title"] - MeteoTrento</title>
+
+    <!-- Inclusione di file CSS (Bootstrap e stili personalizzati) -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MeteoTrento.styles.css" asp-append-version="true" />
+
+    <!-- Favicon della pagina -->
     <link rel="icon" href="~/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!-- Navbar per la navigazione tra le pagine -->
+        <nav class="navbar navbar-expand-sm navbar-dark border-bottom">
             <div class="container-fluid">
+                <!-- Logo o nome del sito che reindirizza alla home page -->
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MeteoTrento</a>
+
+                <!-- Bottone per la visualizzazione del menu su schermi piccoli -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                <!-- Menu di navigazione che contiene i link -->
+                <div class="navbar-collapse collapse justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                        <!-- Link alla Home -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <!-- Link alla pagina Privacy -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Contenitore principale della pagina -->
     <div class="container">
-        <main role="main" class="pb-3">
+        <!-- Sezione principale che ospita il contenuto dinamico della pagina -->
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- Footer della pagina -->
+    <footer class="border-top footer">
         <div class="container">
             &copy; 2024 - MeteoTrento - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <!-- Inclusione di file JavaScript necessari per il funzionamento di Bootstrap e altre funzionalità -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Sezione opzionale per gli script specifici della pagina -->
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
