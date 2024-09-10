@@ -1,27 +1,27 @@
 {
   "profiles": {
-    "WeatherTrentoService": {
+    "WSMeteoTrento": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENV": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "http://localhost:5199/"
+      "applicationUrl": "http://localhost:5182"
     },
-    "LocalIIS": {
+    "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENV": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Container": {
+    "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{Host}:{Port}",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
       "environmentVariables": {
-        "ASPNETCORE_URLS": "http://+:8080/"
+        "ASPNETCORE_URLS": "http://+:80"
       },
       "publishAllPorts": true
     }
@@ -30,7 +30,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53400/",
+      "applicationUrl": "http://localhost:53389",
       "sslPort": 0
     }
   }

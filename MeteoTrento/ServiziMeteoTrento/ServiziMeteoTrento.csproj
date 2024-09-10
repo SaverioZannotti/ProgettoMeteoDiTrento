@@ -1,18 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <!-- Specifica il framework di destinazione, in questo caso .NET 6.0 -->
     <TargetFramework>net6.0</TargetFramework>
+
+    <!-- Abilita l'uso implicito degli spazi dei nomi comuni per ridurre la necessità di dichiarazioni 'using' manuali -->
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- Abilita il supporto per i tipi nullable, migliorando la gestione dei valori null nel codice -->
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Aggiunge il pacchetto Newtonsoft.Json -->
+    <!-- Aggiunge il pacchetto Newtonsoft.Json per la serializzazione e deserializzazione JSON -->
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Riferimento al progetto ModelliMeteoTrento -->
+    <!-- Aggiunge un riferimento al progetto ModelliMeteoTrento, permettendo di utilizzarne i modelli -->
     <ProjectReference Include="..\ModelliMeteoTrento\ModelliMeteoTrento.csproj" />
   </ItemGroup>
 

@@ -1,13 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <TargetFramework>net6.0</TargetFramework> <!-- Specifica il framework di destinazione .NET 6.0 -->
+    <Nullable>enable</Nullable> <!-- Abilita la gestione dei tipi nullable (valori null) nel codice -->
+    <ImplicitUsings>enable</ImplicitUsings> <!-- Abilita l'importazione automatica di spazi dei nomi comuni -->
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS> <!-- Imposta Linux come sistema operativo predefinito per Docker -->
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Riferimenti ai pacchetti necessari per il progetto -->
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
     <PackageReference Include="System.ServiceModel.Duplex" Version="4.10.*" />
     <PackageReference Include="System.ServiceModel.Federation" Version="4.10.*" />
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Riferimenti a progetti locali inclusi nella soluzione -->
     <ProjectReference Include="..\ModelliMeteoTrento\ModelliMeteoTrento.csproj" />
     <ProjectReference Include="..\ServiziMeteoTrento\ServiziMeteoTrento.csproj" />
   </ItemGroup>

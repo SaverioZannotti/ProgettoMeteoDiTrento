@@ -4,18 +4,18 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ContainerTargetOS>Linux</ContainerTargetOS>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Containers.Tools.Targets" Version="1.19.4" />
-    <PackageReference Include="CoreSoap" Version="1.1.0.44" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.4" />
+    <PackageReference Include="SoapCore" Version="1.1.0.44" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeatherModels\WeatherModels.csproj" />
-    <ProjectReference Include="..\WeatherService\WeatherService.csproj" />
-    <ProjectReference Include="..\WeatherUtilities\WeatherUtilities.csproj" />
+    <ProjectReference Include="..\ModelliMeteoTrento\ModelliMeteoTrento.csproj" />
+    <ProjectReference Include="..\MeteoTrento\MeteoTrento.csproj" />
+    <ProjectReference Include="..\ServiziMeteoTrento\ServiziMeteoTrento.csproj" />
   </ItemGroup>
 
 </Project>

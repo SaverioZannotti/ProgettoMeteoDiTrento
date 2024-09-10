@@ -1,24 +1,23 @@
-﻿using MeteoTrentoModels;
+﻿using ModelliMeteoTrento;
 using System.ServiceModel;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace WeatherTrentoService.Logic
+namespace WSMeteoTrento.MeteoTrentoLogic
 {
     [ServiceContract]
-    public interface IWeatherService
+    public interface ISoapService
     {
         [OperationContract]
-        List<WeatherForecast> GetForecastsByDate(string date);
+        List<PrevisioneOutput> ricerca(string data);
     }
 
-    public class WeatherService : IWeatherService
+    public class SoapService : ISoapService
     {
-        public List<WeatherForecast> GetForecastsByDate(string date)
+        public List<PrevisioneOutput> ricerca(string data)
         {
-            var forecasts = MeteoTrentoService.DataReader.GetForecasts().Result;
-            var forecastsForDate = forecasts.Where(f => f.Date == date).ToList();
-            return forecastsForDate;
+            List<PrevisioneOutput> list = new List<PrevisioneOutput>();
+            list = ServiziMeteoTrento.LetturaDati.Lettura().Result;
+            List<PrevisioneOutput> previsioniGiornoInserito = list.Where(p => p.giorno == data).ToList();
+            return previsioniGiornoInserito;
         }
     }
 }

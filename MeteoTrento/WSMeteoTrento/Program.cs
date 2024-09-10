@@ -1,10 +1,10 @@
 using SoapCore;
-using WeatherTrentoService.Logic;
+using WSMeteoTrento.MeteoTrentoLogic;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSoapCore();
-builder.Services.AddScoped<IWeatherService, WeatherService>();
+builder.Services.AddScoped<ISoapService, SoapService>();
 
 var app = builder.Build();
 
@@ -12,7 +12,7 @@ app.UseRouting();
 
 app.UseEndpoints(endpoints =>
 {
-    endpoints.UseSoapEndpoint<IWeatherService>("/WeatherService.wsdl",
+    endpoints.UseSoapEndpoint<ISoapService>("/Servizio.wsdl",
         new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
 });
 
